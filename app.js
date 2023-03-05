@@ -1,36 +1,28 @@
-const express=require("express");
-const bodyParser=require("body-parser");
+const express = require("express");
+const bodyParser = require("body-parser");
+const date=require(__dirname+"/date.js");
+// console.log(date()); if we console log this statement without the brackets then it will just print the function but for the function call you need to write the brackets.
 
-const app=express();
+var items = ["Cook food","eat food"];
+const app = express();
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static("public"));
 
-app.set("view engine","ejs");
+app.set("view engine", "ejs");
 
-app.get("/",function(req,res){
-    var today=new Date();
-    var curr_day=today.getDay();
-    var day="";
-    switch(curr_day){
-        case 1:
-        day="Monday";
-        break;
-    
-    case 2:
-        day="Tuesday";
-        break;
-    case 3:
-        day="Wedneday";
-        break;
-    case 4:
-        day="Thrusday";
-        break;
-    case 5:
-        day="Friday";
-        break;
-
-    }
-    res.render("list",{KindOfDay:day})
+app.get("/", function (req, res) {
+    let day=date.getDate();
+    res.render("list", { KindOfDay: day, newListItems: items })
 });
 
-app.listen(3000,function(){
+
+app.post("/", function (req, res) {
+    var item = req.body.newItem;
+    if(item!=""){
+        items.push(item);
+    }
+    res.redirect("/");
+})
+app.listen(3000, function () {
     console.log("Server is Up!");
 });
