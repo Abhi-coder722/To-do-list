@@ -1,0 +1,26 @@
+{
+  "dependencies": {
+    "ejs": "^3.1.8",
+    "express": "^4.18.2"
+  },
+  "name": "todolist-v1",
+  "version": "1.0.0",
+  "engines": {
+    "node":"14.x"
+  },
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Abhi-coder722/to-do-list.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Abhi-coder722/to-do-list/issues"
+  },
+  "homepage": "https://github.com/Abhi-coder722/to-do-list#readme",
+  "description": ""
+}
