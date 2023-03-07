@@ -24,7 +24,6 @@ app.post("/", function (req, res) {
     res.redirect("/");
 })
 
-const port=process.env.PORT || 9001;
-app.listen(port, function () {
-    console.log("Server is Up!");
-});
+const port=process.env.PORT || 3000;
+app.listen(port);
+    // console.log("Server is Up!");;
